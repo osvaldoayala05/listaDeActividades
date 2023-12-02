@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+body.presentation-complete .presentation-screen {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, #101010 0%, #000000 100%);
+  color: #FFFFFF;
+  font-family: "Press Start 2P", cursive;
+  line-height: 1.5;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+.presentation-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #101010;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.welcome-message {
+  color: #00FF00;
+  font-size: 2rem;
+  text-align: center;
+  animation: fadeInOut 3s forwards;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.dashboard {
+  width: calc(100% - 40px);
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #101010, #3b3b3b);
+  border: 5px solid #4B0082;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00 inset;
+}
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00 inset;
+  }
+  100% {
+    box-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00 inset;
+  }
+}
+
+.dashboard > div {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: linear-gradient(155deg, black, #222222);
+  border: 3px solid #00FF00;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0000FF inset;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard > div {
+    transition: none;
+    animation: none;
+  }
+}
+.dashboard > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px #0000FF;
+}
+
+h2 {
+  font-size: 1rem;
+  color: #FFD700;
+  margin: -20px -20px 15px -20px;
+  padding: 10px;
+  background-color: #4B0082;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 0 8px #FFD700;
+  position: relative;
+  z-index: 1;
+}
+h2::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, red, #FFD700, #00FF00);
+  border-radius: 2px;
+  animation: fillHealthBar 2s forwards;
+  animation-delay: 1s;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #151515;
+  box-shadow: 0 0 8px #00FF00 inset;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #FFD700;
+  color: #00FF00;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+th:hover, td:hover {
+  background-color: #2e2e2e;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding: 8px;
+  background-color: #151515;
+  border: 1px solid #FFD700;
+  margin-bottom: 5px;
+  transition: background-color 0.3s, transform 0.2s ease-out;
+}
+ul li:hover {
+  background-color: #2e2e2e;
+  transform: translateX(5px);
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00 inset;
+  }
+  100% {
+    box-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00 inset;
+  }
+}
+@keyframes fillHealthBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  .dashboard {
+    width: calc(100% - 120px);
+    margin: 20px auto;
+    box-shadow: 0 0 15px #00FF00;
+  }
+}
